@@ -14,7 +14,7 @@ test *args:
     just _py pytest {{args}}
 
 run:
-	$(py) python -m {{package_dir}}
+	poetry run python -m {{package_dir}}
 
 _py *args:
     poetry run {{args}}
