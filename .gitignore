@@ -4,3 +4,5 @@ __pycache__/
 *.py[cod]
 *$py.class
 .mypy_cache
+config/dev.toml
+config/prod.toml

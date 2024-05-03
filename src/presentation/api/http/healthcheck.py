@@ -1,5 +1,6 @@
-from fastapi import APIRouter, status
 from dataclasses import dataclass
+
+from fastapi import APIRouter, status
 
 healthcheck_router = APIRouter(prefix="/healthcheck", tags=["healthcheck"])
 

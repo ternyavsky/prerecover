@@ -1,9 +1,6 @@
-from fastapi import APIRouter, status
-from dataclasses import dataclass
 import strawberry
-from strawberry.asgi import GraphQL
-from strawberry.fastapi import GraphQLRouter
 from strawberry import Schema
+from strawberry.fastapi import GraphQLRouter
 
 
 @strawberry.type
