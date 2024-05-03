@@ -2,13 +2,17 @@ import logging
 
 import uvicorn
 from fastapi import FastAPI
+from src.presentation.api.http.main import setup_http
+from src.presentation.api.graphql.main import setup_grapqhl
 
 logger = logging.getLogger(__name__)
 
 
 def init_api(debug: bool = __debug__) -> FastAPI:
     logger.debug("Init API")
-    app = FastAPI(debug=debug, title="pre-recover.com", version="0.0.1")
+    app = FastAPI(debug=debug, title="http://pre-recover.com", version="0.0.1")
+    setup_http(app)
+    setup_grapqhl(app)
     return app
 
 
