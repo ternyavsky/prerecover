@@ -1,8 +1,9 @@
 import asyncio
 
-from .config import Config
-from src.presentation.api.main import init_api, start_api
 from src.infrastructure.toml_loader import load_config
+from src.presentation.api.main import init_api, start_api
+
+from .config import Config
 
 
 async def main() -> None:
