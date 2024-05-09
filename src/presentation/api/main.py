@@ -3,8 +3,8 @@ import logging
 import uvicorn
 from fastapi import FastAPI
 
-from src.presentation.api.graphql.main import setup_grapqhl
-from src.presentation.api.http.main import setup_http
+from src.presentation.api.http import setup_http
+from src.presentation.api.graphql import setup_grapqhl
 
 logger = logging.getLogger(__name__)
 
