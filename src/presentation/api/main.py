@@ -23,10 +23,10 @@ async def start_api(application: FastAPI, api_config: ApiConfig) -> None:
         app=application,
         host=api_config.host,
         port=api_config.port,
-        reload=True,
         # log_level=logging.INFO,
         # log_config=None,
     )
     server = uvicorn.Server(config)
     logger.info("Running server")
+
     await server.serve()

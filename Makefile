@@ -2,13 +2,18 @@ DC = docker compose
 EXEC = docker exec -it
 LOGS = docker logs
 ENV = --env-file .env
-APP_FILE = compose/app.yaml
+APP_PROD_FILE = compose/app.prod.yaml
+APP_DEV_FILE = compose/app.dev.yaml
 STORAGES_FILE = compose/storages.yaml
 APP_CONTAINER = prerecover.api
+LOCALY =
 PY = poetry
 
-app:
-	${DC} -f ${APP_FILE} ${ENV} up --build
+app-prod:
+	${DC} -f ${APP_PROD_FILE} ${ENV} up --build
+
+app-dev:
+	${DC} -f ${APP_DEV_FILE} ${ENV} up --build
 
 storages:
 	${DC} -f ${STORAGES_FILE} ${ENV} up --build -d
@@ -24,7 +29,6 @@ app-logs:
 
 test:
 	${EXEC} ${APP_CONTAINER} pytest
-
 
 app-shell:
 	${EXEC} ${APP_CONTAINER} bash

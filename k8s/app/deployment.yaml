@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: api
-          image: ternyavsky/prerecover
+          image: cr.selcloud.ru/prerecover
           ports:
             - containerPort: 8000

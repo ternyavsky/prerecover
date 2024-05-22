@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: prerecover.api
+    expose:
+      - "8000"
+    ports:
+      - "${API_PORT}:8000"
+    restart: unless-stopped
+    env_file:
+      - ../.env
+    volumes:
+      - ../src/:/src/
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsSL http://localhost:8000/healthcheck"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 10s
